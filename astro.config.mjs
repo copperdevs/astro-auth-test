@@ -1,7 +1,8 @@
 import { defineConfig } from "astro/config";
-
 import cloudflare from "@astrojs/cloudflare";
 import clerk from "@clerk/astro";
+
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,8 +10,8 @@ export default defineConfig({
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
-      configPath: "wrangler.toml",
-    },
+      configPath: "wrangler.toml"
+    }
   }),
-  integrations: [clerk()],
+  integrations: [clerk(), preact()]
 });
