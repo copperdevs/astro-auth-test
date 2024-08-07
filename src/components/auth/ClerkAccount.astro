@@ -1,0 +1,21 @@
+---
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  SignInButton,
+} from "@clerk/astro/components";
+
+import PreactWrapper from "../PreactWrapper";
+---
+
+<PreactWrapper>
+  <section>
+    <SignedOut>
+      <SignInButton mode="modal" class="auth-button" />
+    </SignedOut>
+    <SignedIn>
+      <UserButton />
+    </SignedIn>
+  </section>
+</PreactWrapper>
