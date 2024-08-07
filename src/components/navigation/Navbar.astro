@@ -1,0 +1,67 @@
+---
+import Divider from "../../../common-astro/components/Divider.astro";
+import NavBarHeaderLink from "./NavBarHeaderLink.astro";
+import FontAwesomeIcon from "../../../common-astro/components/FontAwesomeIcon.astro";
+import ClerkAccount from "../auth/ClerkAccount.astro";
+
+interface Props {
+  active: string;
+}
+---
+
+<div class="navbar show-on-desktop hide-on-mobile">
+  <div class="navbar-links">
+    <slot />
+    <span style="display: inline-block">
+      <NavBarHeaderLink name="home" href="/" />
+    </span>
+    <span style="display: inline-block">
+      <NavBarHeaderLink name="one" href="/one" />
+    </span>
+    <span style="display: inline-block">
+      <NavBarHeaderLink name="two" href="/two" />
+    </span>
+  </div>
+
+  <div class="navbar-socials">
+    <h2>
+      <ClerkAccount />
+    </h2>
+  </div>
+</div>
+
+<div class="navbar show-on-mobile hide-on-desktop top-right">
+  <span onclick="openNav()">
+    <FontAwesomeIcon iconName="fa-solid fa-bars" />
+  </span>
+
+  <div id="myNav" class="overlay">
+    <span class="closebtn top-right" onclick="closeNav()">
+      <FontAwesomeIcon iconName="fa-solid fa-x" />
+    </span>
+
+    <div class="overlay-content">
+      <NavBarHeaderLink name="home" href="/" />
+      <NavBarHeaderLink name="one" href="/one" />
+      <NavBarHeaderLink name="two" href="/two" />
+
+      <Divider />
+
+      <div>
+        <span style="display:inline-block;">
+          <ClerkAccount />
+        </span>
+      </div>
+    </div>
+
+    <script is:inline>
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+    </script>
+  </div>
+</div>
