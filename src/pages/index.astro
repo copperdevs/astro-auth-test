@@ -1,16 +1,15 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="home">
+    <div class="index-callout">
+        <h2 class="index-callout-main">
+          Astro <span class="text-gradient">Auth</span> Test
+        </h2>
+        <h4 class="index-callout-sub color-gray-light">
+          i just wanna test auth bruh
+        </h4>
+      </div>
+      
+</BaseLayout>
