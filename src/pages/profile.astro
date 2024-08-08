@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+
+import ClerkProfileImage from "../components/clerk/ClerkProfileImage.astro";
+
+import {
+  UserProfile,
+  SignOutButton,
+  UserButton,
+  SignInButton,
+} from "@clerk/astro/components";
+
+if (!Astro.locals.auth().userId) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout title="profile">
+  <Navbar active="profile" />
+
+  <div class="index-callout">
+    <div>
+      <h2 class="index-callout-main" style="display: inline-block">
+        User <span class="text-gradient">Profile</span>
+      </h2>
+      <ClerkProfileImage classStyle="profile-page-profile-picture" />
+    </div>
+
+    <h4 class="index-callout-sub color-gray-light">
+      Its your profile and crap
+    </h4>
+  </div>
+  <hr />
+
+  <div class="index-projects-spacing">
+    <SignOutButton />
+  </div>
+
+  <hr class="index-projects-spacing" />
+
+  <div class="index-projects-spacing">
+    <UserProfile data-astro-rerun client:load/>
+  </div>
+</BaseLayout>

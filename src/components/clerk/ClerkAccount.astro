@@ -5,6 +5,8 @@ import {
   UserButton,
   SignInButton,
 } from "@clerk/astro/components";
+
+import ClerkProfileImage from "./ClerkProfileImage.astro";
 ---
 
 <div>
@@ -13,6 +15,9 @@ import {
   </SignedOut>
   <SignedIn>
     <!-- <UserButton userProfileUrl="/profile" /> -->
-    <UserButton />
+    <!-- <UserButton /> -->
+    <a href="/profile" data-astro-rerun>
+      <ClerkProfileImage classStyle="profile-picture" />
+    </a>
   </SignedIn>
 </div>

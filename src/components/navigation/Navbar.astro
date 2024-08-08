@@ -2,7 +2,7 @@
 import Divider from "../../../common-astro/components/Divider.astro";
 import NavBarHeaderLink from "./NavBarHeaderLink.astro";
 import FontAwesomeIcon from "../../../common-astro/components/FontAwesomeIcon.astro";
-import ClerkAccount from "../auth/ClerkAccount.astro";
+import ClerkAccount from "../clerk/ClerkAccount.astro";
 
 interface Props {
   active: string;
@@ -24,9 +24,7 @@ interface Props {
   </div>
 
   <div class="navbar-socials">
-    <h2>
-      <ClerkAccount />
-    </h2>
+    <ClerkAccount />
   </div>
 </div>
 

@@ -1,0 +1,20 @@
+---
+interface Props {
+  classStyle: string;
+}
+
+const { classStyle } = Astro.props;
+
+async function getUserImageUrl() {
+  const user = await Astro.locals.currentUser();
+  return user?.imageUrl;
+}
+---
+
+<span data-astro-rerun astro:before-preparation>
+  <img
+    src={await getUserImageUrl()}
+    alt="users profile picture"
+    class={classStyle}
+  />
+</span>
